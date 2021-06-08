@@ -19,11 +19,15 @@ repositories {
 	mavenCentral()
 }
 
+/*
+	10. providedRuntime ... 해당 부분 주석처리 이유는 web servlet 사용 시
+		무료버전은 빈 에러가 발생함, 따라서 아래 부분 주석처리
+ */
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
