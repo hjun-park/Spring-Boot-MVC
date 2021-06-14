@@ -27,7 +27,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
  	*/
 
 	// Spring boot에서 기본적으로 제공하는 JSON 변환하는 JACKSON 라이브러리
-	private ObjectMapper objectMapper = new ObjectMapper();
+	private final ObjectMapper objectMapper = new ObjectMapper();
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
