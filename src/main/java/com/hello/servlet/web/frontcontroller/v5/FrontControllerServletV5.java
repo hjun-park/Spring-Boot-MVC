@@ -76,7 +76,7 @@ public class FrontControllerServletV5 extends HttpServlet {
 		MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
 		// c. 요청 응답, 그리고 핸들러를 인자로 넣어주면 거기에 대한 모델 뷰 반환
-		// 핸덜들러 어댑터의해 핸들러 실행(실제 컨트롤러) 후 모델 뷰 반환
+		// 핸들러 어댑터의해 핸들러 실행(실제 컨트롤러) 후 모델 뷰 반환
 		ModelView mv = adapter.handle(request, response, handler);
 
 		// d. 뷰 이름을 가져오고 논리이름을 전체이름으로 매핑
