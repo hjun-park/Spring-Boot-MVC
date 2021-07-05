@@ -1,7 +1,9 @@
 package hello.springmvc.basic.request;
 
+import hello.springmvc.basic.HelloData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -97,5 +99,36 @@ public class RequestParamController {
 		log.info("username = {}, age = {}", paramMap.get("username"), paramMap.get("age"));
 		return "ok";
 	}
-	
+
+	// 23. HTTP 요청 파라미터 - @ModelAttribute
+	@ResponseBody
+	@RequestMapping("/model-attribute-v1")
+	// 24. 원래 방식
+	//public String modelAttributeV1(@RequestParam String username, @RequestParam int age) {
+	// 25. 변경된 방식 ( HelloData 부분 주석도 가능 )
+	// HelloData 객체도 알아서 생성 해주고 파라미터의 값도 모두 들어가 있다.
+	//  ( 객체 생성 -> 요청파라미터 이름으로 HelloData 프로퍼티(username, age)를 찾음 )
+	//  ( 그래서 setter을 호출하고 각 프로퍼티를 바인딩해주며 값을 set )
+	public String modelAttributeV1(@ModelAttribute HelloData helloData) {
+
+//		HelloData helloData = new HelloData();
+//		helloData.setUsername(username);
+//		helloData.setAge(age);
+
+		log.info("username = {}, age = {}", helloData.getUsername(), helloData.getAge());
+
+		return "ok";
+	}
+
+
+	// 26. ModelAttribute는 생략이 가능하다.
+	//  - 개인적으로 적어주는게 좋을 것 같기도 하고 ..
+	@ResponseBody
+	@RequestMapping("/model-attribute-v2")
+	public String modelAttributeV2(HelloData helloData) {
+		log.info("username = {}, age = {}", helloData.getUsername(), helloData.getAge());
+
+		return "ok";
+	}
+
 }
