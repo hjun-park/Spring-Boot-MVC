@@ -120,7 +120,6 @@ public class RequestParamController {
 		return "ok";
 	}
 
-
 	// 26. ModelAttribute는 생략이 가능하다.
 	//  - 개인적으로 적어주는게 좋을 것 같기도 하고 ..
 	@ResponseBody
@@ -130,5 +129,7 @@ public class RequestParamController {
 
 		return "ok";
 	}
+
+
 
 }
